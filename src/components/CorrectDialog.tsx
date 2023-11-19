@@ -10,7 +10,7 @@ const CorrectDialog = ({ onClose, isCorrect }: ICoreectDialogProps) => {
         <p className="font-bold text-xl">정답 확인</p>
         <div className="mt-5 flex items-center gap-x-3">
           <div className="w-7 h-auto">
-            <img src={isCorrect ? "/check.png" : "/delete.png"} alt="correct" />
+            <img src={isCorrect ? "https://gguussuu.github.io/quiz-web/check.png" : "https://gguussuu.github.io/quiz-web/delete.png"} alt="correct" />
           </div>
           <p className="text-lg font-semibold leading-6 text-gray-900">
             {isCorrect ? "정답입니다." : "오답입니다."}
