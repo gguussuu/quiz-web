@@ -26,7 +26,7 @@ const ReviewNotes = () => {
             오답 풀이할 문제가 없습니다.
           </div>
         ) : (
-          <ul className="mt-20 flex flex-col gap-y-8">
+          <ul className="mt-10 md:mt-20 flex flex-col gap-y-4 md:gap-y-8 px-4 md:px-0 w-full">
             <li className="flex ml-auto items-center gap-x-1 text-sm">
               <span className="w-3 h-3 rounded-full bg-red-500"></span>
               <span>내가 고른 답</span>

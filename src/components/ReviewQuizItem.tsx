@@ -16,7 +16,7 @@ const ReviewQuizItem = ({
   return (
     <li className="w-full bg-white rounded-xl px-8 py-6" key={quiz.question}>
       <p className="font-bold text-xl">Q. {convertHTMLtag(quiz.question)}</p>
-      <ul className="mt-5 flex flex-col gap-y-3 w-[500px]">
+      <ul className="mt-5 flex flex-col gap-y-3 md:w-[500px]">
         {answerList.map((answer, idx) => {
           const isAnswer = answer === quiz.correct_answer;
           const isMyChoice = choiceList[index] === answer;

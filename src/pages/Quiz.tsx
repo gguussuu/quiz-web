@@ -99,8 +99,8 @@ const Quiz = () => {
 
   return (
     <div className="w-full h-screen bg-red-100 relative flex items-center justify-center">
-      <main className="w-full max-w-5xl mx-auto relative">
-        <h2 className="font-bold text-4xl">
+      <main className="w-full px-4 md:px-0 max-w-5xl mx-auto relative">
+        <h2 className="font-bold text-lg md:text-4xl">
           Q{quizId}. {convertHTMLtag(quizItem.question)}
         </h2>
         <ul className="flex flex-col mt-10 gap-3">
@@ -115,17 +115,19 @@ const Quiz = () => {
             />
           ))}
         </ul>
-        <footer className="w-full mt-20">
-          <div className="w-full max-w-5xl mx-auto flex justify-between">
-            <div className="flex flex-col items-center bg-white rounded px-4 justify-center shadow-md py-1">
-              <p className="font-bold text-lg">소요 시간</p>
-              <p className="font-bold text-lg">{translateTime(sec)}</p>
+        <footer className="w-full mt-10 md:mt-20">
+          <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row justify-between">
+            <div className="flex md:items-center gap-y-2">
+              <div className="flex flex-col items-center bg-white rounded px-4 justify-center shadow-md py-1">
+                <p className="font-bold md:text-lg">소요 시간</p>
+                <p className="font-bold md:text-lg">{translateTime(sec)}</p>
+              </div>
+              <div className="flex flex-col items-center bg-white rounded px-4 justify-center shadow-md ml-4 py-1">
+                <p className="font-bold md:text-lg">남은 문제</p>
+                <p className="font-bold md:text-lg">{quizId}/10</p>
+              </div>
             </div>
-            <div className="flex flex-col items-center bg-white rounded px-4 justify-center shadow-md ml-4 py-1">
-              <p className="font-bold text-lg">남은 문제</p>
-              <p className="font-bold text-lg">{quizId}/10</p>
-            </div>
-            <div className="flex self-end items-center gap-x-2 ml-auto">
+            <div className="flex justify-between md:justify-center items-center gap-x-2 md:ml-auto mt-10 md:mt-0">
               {!isLast && (
                 <button
                   className="px-5 py-2 bg-gray-400 rounded-md text-center text-white font-bold"
@@ -137,7 +139,7 @@ const Quiz = () => {
               <button
                 onClick={() => handleSubmit(answerValue)}
                 disabled={answerValue === ""}
-                className="px-5 py-2 bg-red-400 rounded-md text-center text-white font-bold disabled:bg-gray-400"
+                className="ml-auto px-5 py-2 bg-red-400 rounded-md text-center text-white font-bold disabled:bg-gray-400"
               >
                 {isLast ? "결과 확인하러 가기" : "다음 문제"}
               </button>

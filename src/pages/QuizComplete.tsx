@@ -17,20 +17,20 @@ const QuizComplete = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-red-100 relative flex items-center justify-center">
+    <div className="w-full min-h-screen bg-red-100 relative flex items-center justify-center">
       <section className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center">
-        <h2 className="font-bold text-4xl text-red-500">결과</h2>
-        <ul className="mt-10 grid grid-cols-3 items-center justify-center px-6 py-4 w-[600px] rounded-lg bg-white">
-          <li className="rounded-md px-2 py-4 w-full font-bold text-lg flex flex-col gap-x-5 items-center">
-            <p className="text-white rounded-full w-[100px] h-[100px] inline-flex items-center justify-center bg-red-500">
+        <h2 className="font-bold text-2xl md:text-4xl text-red-500 mt-10">결과</h2>
+        <ul className="mt-10 grid grid-cols-3 items-center justify-center px-6 py-4 mx-4 md:mx-0 md:w-[600px] rounded-lg bg-white">
+          <li className="rounded-md px-2 py-4 w-full font-bold text-sm md:text-lg flex flex-col gap-x-5 items-center">
+            <p className="text-white rounded-full w-[80px] h-[80px] md:w-[100px] md:h-[100px] inline-flex items-center justify-center bg-red-500">
               {translateTime(Number(time))}
             </p>
             <span className="inline-block mt-2 font-bold text-gray-700">
               소요시간
             </span>
           </li>
-          <li className="rounded-md px-2 py-4 w-full font-bold text-lg flex flex-col gap-x-5 items-center">
-            <p className="text-white rounded-full text-xl w-[100px] h-[100px] inline-flex items-center justify-center bg-red-500">
+          <li className="rounded-md px-2 py-4 w-full font-bold flex flex-col gap-x-5 items-center">
+            <p className="text-white rounded-full text-base md:text-xl w-[80px] h-[80px] md:w-[100px] md:h-[100px] inline-flex items-center justify-center bg-red-500">
               {correct}
               <span className="inline-block ml-1 text-gray-100">/ 10</span>
             </p>
@@ -38,8 +38,8 @@ const QuizComplete = () => {
               정답 수
             </span>
           </li>
-          <li className="rounded-md px-2 py-4 w-full font-bold text-lg flex flex-col gap-x-5 items-center">
-            <p className="text-white rounded-full text-xl w-[100px] h-[100px] inline-flex items-center justify-center bg-gray-400/80">
+          <li className="rounded-md px-2 py-4 w-full font-bold flex flex-col gap-x-5 items-center">
+            <p className="text-white rounded-full text-base md:text-xl w-[80px] h-[80px] md:w-[100px] md:h-[100px]] inline-flex items-center justify-center bg-gray-400/80">
               {incorrect}
               <span className="inline-block ml-1 text-gray-100">/ 10</span>
             </p>
