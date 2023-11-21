@@ -23,8 +23,9 @@ const QuizItem = ({
         className="hidden peer"
         onChange={(e) => setAnswerValue(e.target.value)}
         checked={answerValue === answer}
-        required
+        required={true}
         disabled={isSelect}
+        aria-labelledby={answer}
       />
       <label
         htmlFor={answer}

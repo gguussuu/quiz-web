@@ -14,13 +14,13 @@ const useFetchQuiz = () => {
     return res.data;
   };
 
-  const { data, isLoading, error } = useQuery("quizList", fetchQuiz, {
+  const { data, isLoading, error, isSuccess } = useQuery("quizList", fetchQuiz, {
     staleTime: Infinity,
     cacheTime: Infinity,
     select: (data) => data.results,
   });
 
-  return { data, isLoading, error };
+  return { data, isLoading, error, isSuccess };
 };
 
 export default useFetchQuiz;

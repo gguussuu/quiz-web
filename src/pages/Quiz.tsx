@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CorrectDialog from "../components/CorrectDialog";
 import useFetchQuiz from "../hooks/queries/useFetchQuiz";
 import translateTime from "../utils/formatTIme";
@@ -19,7 +19,6 @@ const Quiz = () => {
   const [sec, setSec] = useState(0);
   const [wrongQuiz, setWrongQuiz] = useState<IQuiz[]>([]);
   const [choiceAnswer, setChoiceAnswer] = useState<string[]>([]);
-  const navigate = useNavigate();
   const { data: quizList, isLoading } = useFetchQuiz();
   const initialData = {
     type: "multiple",
@@ -38,6 +37,8 @@ const Quiz = () => {
   const correctNum = Number(localStorage.getItem("correct"));
   const incorrectNum = Number(localStorage.getItem("incorrect"));
   const isSelect = answerValue !== "";
+  const isLast = quizId === quizList?.length;
+  const navigateLink = isLast ? "/complete" : `/quiz/${quizId + 1}`;
 
   useEffect(() => {
     const time = setInterval(() => {
@@ -68,7 +69,6 @@ const Quiz = () => {
     const list = incorrectList.concat(quizItem.correct_answer);
     return list.sort();
   }, [quizItem.correct_answer, quizItem.incorrect_answers]);
-  const isLast = quizId === quizList?.length;
 
   const handleSubmit = useCallback(
     (answer: string) => {
@@ -76,12 +76,9 @@ const Quiz = () => {
       setAnswerValue("");
       if (isLast) {
         localStorage.setItem("time", sec.toString());
-        navigate("/complete");
-      } else {
-        navigate(`/quiz/${quizId + 1}`);
       }
     },
-    [checkCorrect, isLast, navigate, quizId, sec]
+    [checkCorrect, isLast, sec]
   );
 
   const onClickCorrect = () => {
@@ -100,6 +97,7 @@ const Quiz = () => {
   return (
     <div className="w-full h-screen bg-red-100 relative flex items-center justify-center">
       <main className="w-full px-4 md:px-0 max-w-5xl mx-auto relative">
+        <h1 className="font-bold text-lg">퀴즈 문제</h1>
         <h2 className="font-bold text-lg md:text-4xl">
           Q{quizId}. {convertHTMLtag(quizItem.question)}
         </h2>
@@ -136,13 +134,15 @@ const Quiz = () => {
                   정답 확인하기
                 </button>
               )}
-              <button
-                onClick={() => handleSubmit(answerValue)}
-                disabled={answerValue === ""}
-                className="ml-auto px-5 py-2 bg-red-400 rounded-md text-center text-white font-bold disabled:bg-gray-400"
-              >
-                {isLast ? "결과 확인하러 가기" : "다음 문제"}
-              </button>
+              <Link to={navigateLink}>
+                <button
+                  onClick={() => handleSubmit(answerValue)}
+                  disabled={answerValue === ""}
+                  className="ml-auto px-5 py-2 bg-red-400 rounded-md text-center text-white font-bold disabled:bg-gray-400"
+                >
+                  {isLast ? "결과 확인하러 가기" : "다음 문제"}
+                </button>
+              </Link>
             </div>
           </div>
         </footer>
