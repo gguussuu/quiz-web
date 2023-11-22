@@ -1,46 +1,22 @@
-# Getting Started with Create React App
+# Quiz Web
+퀴즈 앱웹 프로젝트 입니다.
+반응형으로 제작되었습니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+기술 스택 : react, tailwindcss, typescript, react-query
 
-## Available Scripts
+## 실행
+```shell
+$ yarn
+$ yarn dev
+```
+## 배포 URL
+- https://gguussuu.github.io/quiz-web/
 
-In the project directory, you can run:
+## 테스트
+- 첫 화면이 제대로 렌더링 되고 있는지, 퀴즈 풀기를 클릭하면 퀴즈문제로 잘 넘어가는지 테스트
+- 정답 확인하기를 클릭하면 노출되는 다이얼로그에서 정답일 때, 문구가 올바르게 노출되고 있는지 닫기 버튼 클릭시 이벤트가 잘 작동하는지 테스트
+- react-query를 활용하여 api를 호출하는데, 호출에 이상이 없는지 테스트
+- 퀴즈 문제에서 4가지 답중에 한가지를 클릭 했을시, 이벤트가 잘 작동하는지 테스트
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 실행 화면
+<img width="1260" alt="image" src="https://github.com/gguussuu/quiz-web/assets/37858979/288798c8-12b9-4822-adb7-da720c5f9df4">
